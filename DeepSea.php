@@ -12,7 +12,7 @@ if( !defined( 'MEDIAWIKI' ) ) {
 	die( -1 );
 }
 
-require_once(dirname(__FILE__) . '/common/headers.php');
+require_once(dirname(__FILE__) . '/../common/headers.php');
 
 /*$wgExtensionCredits['skin'][] = array (
 	'path' => __FILE__,
