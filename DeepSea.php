@@ -55,4 +55,5 @@ $wgResourceModules['skins.deepsea'] = array(
     'scripts' => array(
     	"skins/DeepSea/deepsea/deepsea.js",
     	"skins/common/foes.js"
-    ),
+    )
+);
