@@ -1,10 +1,11 @@
 <?php
 /**
  * SkinTemplate class for Deep Sea skin
+ *
+ * @file
  * @ingroup Skins
  */
 class SkinDeepSea extends SkinTemplate {
-
 	var $skinname = 'deepsea', $stylename = 'deepsea',
 		$template = 'DeepSeaTemplate', $useHeadElement = true;
 
@@ -26,29 +27,26 @@ class SkinDeepSea extends SkinTemplate {
 				htmlspecialchars( $wgLocalStylePath ) .
 				"/{$this->stylename}/csshover{$min}.htc\")}</style><![endif]-->"
 		);
-		$out->addMeta('viewport', 'width=device-width');
+		$out->addMeta( 'viewport', 'width=device-width' );
 
+		// Load JS
 		$out->addModuleScripts( 'skins.deepsea' );
-
-		$path = $wgLocalStylePath;
-		//$out->addLink($big);
-
-//		addTopElements($out);
 	}
 
 	/**
 	 * Load skin and user CSS files in the correct order
 	 * fixes bug 22916
+	 *
 	 * @param $out OutputPage object
 	 */
-	function setupSkinUserCss( OutputPage $out ){
+	function setupSkinUserCss( OutputPage $out ) {
 		parent::setupSkinUserCss( $out );
 		$out->addModuleStyles( 'skins.deepsea' );
-		
+
 		global $wgUser;
 		$user = $wgUser->getName();
-		$globalcss = "meta.brickimedia.org/index.php/User:$user/global.css";
-		$wgResourceModules['skins.deepsea']['styles'][$globalcss] = array( 'media' => 'screen' );
+		$globalCSS = "meta.brickimedia.org/index.php/User:$user/global.css";
+		$wgResourceModules['skins.deepsea']['styles'][$globalCSS] = array( 'media' => 'screen' );
 	}
 }
 
@@ -63,11 +61,7 @@ class DeepSeaTemplate extends BaseTemplate {
 	/**
 	 * Outputs the entire contents of the (X)HTML page
 	 */
-	 
 	public function execute() {
-		
-//		addBottomElements($this);
-		
 		global $wgVectorUseIconWatch;
 
 		// Build additional attributes for navigation urls
@@ -121,27 +115,29 @@ class DeepSeaTemplate extends BaseTemplate {
 			$this->data['personal_urls'] =
 				array_reverse( $this->data['personal_urls'] );
 		}
-		
-		//Get rid of studs if not wanted
+
+		// Get rid of studs if not wanted
 		$studs = true;
-/*		
+
+		$haveAds = false;
 		// AD CODES ==============================================
 		//$ad: 0 = none; 1 = side; 2 = bottom;
+/*
 		$haveAds = true;
-		if($_SERVER['SERVER_NAME'] == "adams-site.x10.mx"){
+		if ( $_SERVER['SERVER_NAME'] == 'adams-site.x10.mx' ) {
 			$haveAds = false;
 		}
-//		global $IP;
-//		require_once( $IP . '/extensions/MobileDetect/MobileDetect.php' );
-		
-		if(mobiledetect()){
+		global $IP;
+		require_once( $IP . '/extensions/MobileDetect/MobileDetect.php' );
+
+		if ( mobiledetect() ) {
 			$haveAds = false;
 		}
-		
-		if ($haveAds){
+
+		if ( $haveAds ) {
 			$body = $this->data['bodycontent'];
-			
-			if (strlen($body) > 4000){
+
+			if ( strlen( $body ) > 4000 ) {
 				$ad = 1;
 			} else {
 				$ad = 2;
@@ -149,7 +145,7 @@ class DeepSeaTemplate extends BaseTemplate {
 		} else {
 			$ad = 0;
 		}
-*/		
+*/
 		// Output HTML Page
 		$this->html( 'headelement' );
 ?>
@@ -202,7 +198,7 @@ class DeepSeaTemplate extends BaseTemplate {
 				<!-- /jumpto -->
 				<?php endif; ?>
 				<!-- bodycontent -->
-				<?php $this->html('bodycontent'); ?>
+				<?php $this->html( 'bodycontent' ); ?>
 				<!-- /bodycontent -->
 				<?php if ( $this->data['printfooter'] ): ?>
 				<!-- printfooter -->
@@ -245,8 +241,8 @@ class DeepSeaTemplate extends BaseTemplate {
 				<div id="p-logo"><a style="background-image: url(<?php $this->text( 'logopath' ) ?>);" href="<?php echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] ) ?>" <?php echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ) ?>></a></div>
 			<?php $this->renderPortals( $this->data['sidebar'] ); ?>
 			<div id="p-ad" class="portal">
-				<?php if ($ad == 1):?>
-				<h5>Advertisement</h5>
+				<?php if ( $ad == 1 ): ?>
+				<h5><?php echo wfMessage( 'deepsea-advertisement' )->plain() ?></h5>
 				<div id="p-ad-container">
 					<div id="p-ad-ad">
 						<script type="text/javascript"><!--
@@ -267,8 +263,8 @@ class DeepSeaTemplate extends BaseTemplate {
 		<!-- footer -->
 		<div id="footer"<?php $this->html( 'userlangattributes' ) ?>>
 			<?php $this->renderNavigation( 'SEARCH-MOBILE' ); ?>
-			
-			<?php if ($ad == 2):?>
+
+			<?php if ( $ad == 2 ): ?>
 				<script type="text/javascript"><!--
 					google_ad_client = "ca-pub-9543775174763951";
 					/* Wiki bottom */
@@ -287,15 +283,14 @@ class DeepSeaTemplate extends BaseTemplate {
 					<?php endforeach; ?>
 				</ul>
 			<?php endforeach; ?>
-			<?php $footericons = $this->getFooterIcons("icononly");
+			<?php $footericons = $this->getFooterIcons( 'icononly' );
 			if ( count( $footericons ) > 0 ): ?>
 				<ul id="footer-icons" class="noprint">
 <?php			foreach ( $footericons as $blockName => $footerIcons ): ?>
 					<li id="footer-<?php echo htmlspecialchars( $blockName ); ?>ico">
-<?php				foreach ( $footerIcons as $icon ): ?>
-						<?php echo $this->getSkin()->makeFooterIcon( $icon ); ?>
-
-<?php				endforeach; ?>
+<?php				foreach ( $footerIcons as $icon ):
+						echo $this->getSkin()->makeFooterIcon( $icon );
+					endforeach; ?>
 					</li>
 <?php			endforeach; ?>
 				</ul>
@@ -363,20 +358,18 @@ class DeepSeaTemplate extends BaseTemplate {
 		if ( is_array( $content ) ): ?>
 		<ul>
 <?php
-			foreach( $content as $key => $val ): ?>
-			<?php echo $this->makeListItem( $key, $val ); ?>
+			foreach( $content as $key => $val ) {
+				echo $this->makeListItem( $key, $val );
+			}
 
-<?php
-			endforeach;
 			if ( $hook !== null ) {
 				wfRunHooks( $hook, array( &$this, true ) );
 			}
 			?>
 		</ul>
 <?php
-		else: ?>
-		<?php echo $content; /* Allow raw HTML block to be defined by extensions */ ?>
-<?php
+		else:
+			echo $content; /* Allow raw HTML block to be defined by extensions */
 		endif; ?>
 	</div>
 </div>
@@ -390,7 +383,10 @@ class DeepSeaTemplate extends BaseTemplate {
 	 * @param $elements array
 	 */
 	private function renderNavigation( $elements ) {
-		global $wgVectorUseSimpleSearch;
+		global $wgVectorUseSimpleSearch, $wgStylePath;
+
+		// $this->getSkin()->getSkinStylePath() unfortunately only works for core skins...
+		$imgPath = $wgStylePath . '/DeepSea/deepsea/';
 
 		// If only one element was given, wrap it in an array, allowing more
 		// flexible arguments
@@ -404,6 +400,9 @@ class DeepSeaTemplate extends BaseTemplate {
 		foreach ( $elements as $name => $element ) {
 			echo "\n<!-- {$name} -->\n";
 			switch ( $element ) {
+				// @todo FIXME: there should be an <ul> before the foreach()
+				// loop for this to validate, but adding the <ul> as a "wrapper"
+				// breaks the layout of the tabs...
 				case 'NAMESPACES':
 ?>
 <div id="p-namespaces" class="vectorTabs<?php if ( count( $this->data['namespace_urls'] ) == 0 ) echo ' emptyPortlet'; ?>"<?php $this->html( 'userlangattributes' ) ?>>
@@ -448,8 +447,6 @@ class DeepSeaTemplate extends BaseTemplate {
 </div>
 <?php
 				break;
-				echo $this->data;
-				echo hi;
 				case 'ACTIONS':
 ?>
 <div id="p-cactions" class="vectorMenu<?php if ( count( $this->data['action_urls'] ) == 0 ) echo ' emptyPortlet'; ?>">
@@ -469,10 +466,11 @@ class DeepSeaTemplate extends BaseTemplate {
 <div id="p-personal" class="top-nav <?php if ( count( $this->data['personal_urls'] ) == 0 ) echo ' emptyPortlet'; ?>">
 	<h5><?php $this->msg( 'personaltools' ) ?></h5>
 	<ul<?php $this->html( 'userlangattributes' ) ?>>
-<?php			foreach( $this->getPersonalTools() as $key => $item ) { ?>
-		<?php echo $this->makeListItem( $key, $item ); ?>
-
-<?php			} ?>
+<?php
+		foreach ( $this->getPersonalTools() as $key => $item ) {
+			echo $this->makeListItem( $key, $item );
+		}
+?>
 	</ul>
 </div>
 <?php
@@ -484,13 +482,15 @@ class DeepSeaTemplate extends BaseTemplate {
 	<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
 		<?php if ( $wgVectorUseSimpleSearch && $this->getSkin()->getUser()->getOption( 'vector-simplesearch' ) ): ?>
 		<div id="simpleSearch">
-			<?php if ( $this->data['rtl'] ): ?>
-			<?php echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $this->getSkin()->getSkinStylePath( 'images/search-rtl.png' ) ) ); ?>
-			<?php endif; ?>
-			<?php echo $this->makeSearchInput( array( 'id' => 'searchInput', 'type' => 'text' ) ); ?>
-			<?php if ( !$this->data['rtl'] ): ?>
-			<?php echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $this->getSkin()->getSkinStylePath( 'images/search-ltr.png' ) ) ); ?>
-			<?php endif; ?>
+			<?php
+				if ( $this->data['rtl'] ) {
+					echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-rtl.png' ) );
+				}
+				echo $this->makeSearchInput( array( 'id' => 'searchInput', 'type' => 'text' ) );
+				if ( !$this->data['rtl'] ) {
+					echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-ltr.png' ) );
+				}
+			?>
 		<?php else: ?>
 		<div>
 			<?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
@@ -508,16 +508,18 @@ class DeepSeaTemplate extends BaseTemplate {
 ?>
 <div id="p-search-mobile" class="mobile">
 	<h5<?php $this->html( 'userlangattributes' ) ?>><label for="searchInput"><?php $this->msg( 'search' ) ?></label></h5>
-	<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
+	<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform-mobile">
 		<?php if ( $wgVectorUseSimpleSearch && $this->getSkin()->getUser()->getOption( 'vector-simplesearch' ) ): ?>
-		<div id="simpleSearch">
-			<?php if ( $this->data['rtl'] ): ?>
-			<?php echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $this->getSkin()->getSkinStylePath( 'images/search-rtl.png' ) ) ); ?>
-			<?php endif; ?>
-			<?php echo $this->makeSearchInput( array( 'id' => 'searchInput', 'type' => 'text' ) ); ?>
-			<?php if ( !$this->data['rtl'] ): ?>
-			<?php echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $this->getSkin()->getSkinStylePath( 'images/search-ltr.png' ) ) ); ?>
-			<?php endif; ?>
+		<div id="simpleSearch-mobile">
+			<?php
+				if ( $this->data['rtl'] ) {
+					echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-rtl.png' ) );
+				}
+				echo $this->makeSearchInput( array( 'id' => 'searchInput', 'type' => 'text' ) );
+				if ( !$this->data['rtl'] ) {
+					echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-ltr.png' ) );
+				}
+			?>
 		<?php else: ?>
 		<div>
 			<?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
@@ -533,23 +535,37 @@ class DeepSeaTemplate extends BaseTemplate {
 				break;
 				case 'MEDIA':
 					$bmProjectsData = array(
-						'meta' => array( 'name' => 'Meta',
-							'hover' => 'Brickimedia\'s administrations site' ),
-						'en' => array( 'name' => 'Brickipedia',
-							'hover' => 'The LEGO Wiki' ),
-						'customs' => array( 'name' => 'Customs',
-							'hover' => 'Upload your own creations' ),
-						'stories' => array( 'name' => 'Stories',
-							'hover' => 'For all your own LEGO Stories' ),
-						'cuusoo' => array( 'name' => 'CUUSOO',
-							'hover' => 'The LEGO CUUSOO Wiki' ),
-						'dev' => array( 'name' => 'Dev',
-							'hover' => 'The Brickimedia development wiki' ),
-						'admin' => array( 'name' => 'Admin',
-							'hover' => 'The admin organisation wiki' ),
+						'meta' => array(
+							'name' => 'Meta',
+							'hover' => 'Brickimedia\'s administrations site'
+						),
+						'en' => array(
+							'name' => 'Brickipedia',
+							'hover' => 'The LEGO Wiki'
+						),
+						'customs' => array(
+							'name' => 'Customs',
+							'hover' => 'Upload your own creations'
+						),
+						'stories' => array(
+							'name' => 'Stories',
+							'hover' => 'For all your own LEGO Stories'
+						),
+						'cuusoo' => array(
+							'name' => 'CUUSOO',
+							'hover' => 'The LEGO CUUSOO Wiki'
+						),
+						'dev' => array(
+							'name' => 'Dev',
+							'hover' => 'The Brickimedia development wiki'
+						),
+						'admin' => array(
+							'name' => 'Admin',
+							'hover' => 'The admin organisation wiki'
+						),
 					);
 					global $bmProject;
-	
+
 ?>
 <div id="p-media" class="top-nav">
 	<h5>Brickimedia Navigation</h5>
@@ -557,30 +573,38 @@ class DeepSeaTemplate extends BaseTemplate {
 		<li class="not-link">
 			<a>Brickimedia:</a>
 		</li>
-		<?php foreach ($bmProjectsData as $code => $info):?>
-		<li class="<?php if ($bmProject == $code){echo 'selected';}?>" name="<?php echo $info['hover'];?>">
-			<a href="http://<?php echo $code;?>.brickimedia.org"><?php echo $info['name'];?></a>
-		
+		<?php
+			foreach ( $bmProjectsData as $code => $info ):
+				$liAttributes = array( 'title' => $info['hover'] );
+				// Empty class attribute makes W3C Validator sad, so add it
+				// only if we have a reason to!
+				if ( $bmProject == $code ) {
+					array_merge( $liAttributes, array( 'class' => 'selected' ) );
+				}
+				$li = Html::openElement( 'li', $liAttributes );
+				echo $li . "\n"; // the newline is just to prettify the HTML output a bit :P
+		?>
+			<a href="http://<?php echo $code; ?>.brickimedia.org"><?php echo $info['name']; ?></a>
+
 		<div class="submenu">
-			<a href="http://<?php echo $code;?>.brickimedia.org/wiki/Special:RecentChanges">Recent Changes</a>
-			<a style="display:none;" href="http://<?php echo $code;?>.brickimedia.org/wiki/Special:Mytalk">My Talk</a>
-			<a href="http://<?php echo $code;?>.brickimedia.org/wiki/Forum:Index">Forums</a>
-			<?php if( $code != 'meta' ){
-            	echo "<a href='http://$code.brickimedia.org/wiki/Special:Chat'>Chat</a>";
-			}?>
-			<?php if( $code != $bmProject ){
-				global $wgTitle;
-            	echo "<a href='http://$code.brickimedia.org/wiki/$wgTitle'>This Page</a>";
-			}?>
+			<a href="http://<?php echo $code; ?>.brickimedia.org/wiki/Special:RecentChanges"><?php echo wfMessage( 'recentchanges' )->plain() ?></a>
+			<a style="display:none;" href="http://<?php echo $code; ?>.brickimedia.org/wiki/Special:Mytalk"><?php echo wfMessage( 'deepsea-my-talk' )->plain() ?></a>
+			<a href="http://<?php echo $code; ?>.brickimedia.org/wiki/Forum:Index"><?php echo wfMessage( 'deepsea-forums' )->plain() ?></a>
+			<?php
+				if ( $code != 'meta' ) {
+					$chatMsg = wfMessage( 'deepsea-chat' )->plain();
+					echo "<a href='http://$code.brickimedia.org/wiki/Special:Chat'>{$chatMsg}</a>";
+				}
+				if ( $code != $bmProject ) {
+					$thisTitle = $this->getSkin()->getTitle()->getPrefixedURL();
+					$thisPageMsg = wfMessage( 'deepsea-this-page' )->plain();
+					echo "<a href=\"http://$code.brickimedia.org/wiki/{$thisTitle}\">{$thisPageMsg}</a>";
+				}
+			?>
 		</div>
-		
+
 		</li>
-		<?php endforeach;?>
-		<!-- <li class="not-link" style="border-bottom-left-radius: 1em;">
-			Brickimedia has suffered a database problem.
-			<br>Please recreate your account using the same name.
-			<br>You will need to clear your cookies to log in.
-		</li> -->
+		<?php endforeach; ?>
 	</ul>
 </div>
 

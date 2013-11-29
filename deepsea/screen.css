@@ -10,7 +10,7 @@
  * the child selector. You can spot this by looking for the "OVERRIDDEN BY COMPLIANT BROWSERS" and
  * "IGNORED BY IE6" comments.
  */
- 
+
 /**:not(#content) a:hover {
  	text-decoration: none;
 }*/
@@ -74,7 +74,7 @@ div#mw-head h5 {
 	#p-personal li:last-child {
 		padding-right: 10px;
 	}
-	
+
 	/* @noflip */
 	div.top-nav li {
 		line-height: 1.125em;
@@ -115,7 +115,7 @@ div#mw-head h5 {
 	#p-media li.selected {
 		background-color: #FFFFFF;
 	}
-	
+
 	/* Navigation Containers */
 	#left-navigation {
 		position: absolute;
@@ -192,13 +192,13 @@ div#mw-head h5 {
 	#right-navigation div.emptyPortlet + div.emptyPortlet + div {
 		border-top-left-radius: 1em;
 	}
-	
+
 	/* OVERRIDDEN BY COMPLIANT BROWSERS */
-	div.vectorTabs a  {
+	div.vectorTabs a {
 		display: inline-block;
 		padding-top: 1em;
 	}
-	
+
 	div.vectorTabs li.selected a,
 	div.vectorTabs li.selected a:visited{
 		color: #333333;
@@ -260,7 +260,7 @@ div#mw-head h5 {
 		height: 2.5em;
 		text-decoration: none;
 	}
-	
+
 	/* IGNORED BY IE6 */
 	div.vectorMenu h5 > a {
 		display: block;
@@ -362,7 +362,7 @@ div#mw-head h5 {
 	#p-search input[type=search], #p-search input[name=search] {
 		width:8em;
 	}
-	
+
 	div#simpleSearch {
 		display: block;
 		width: 14em;
@@ -454,10 +454,10 @@ div#mw-panel {
 		direction: ltr;
 	}
 	div#mw-panel div.portal h5 {
-        font-weight: normal;
+		font-weight: normal;
 		/* Nathan's rejected idea:
-        font-weight: bold;
-        text-transform: uppercase;*/
+		font-weight: bold;
+		text-transform: uppercase;*/
 		color: #444444;
 		padding: 0.25em;
 		padding-left: 1.75em;
@@ -506,7 +506,7 @@ div#mw-panel {
 	div#mw-panel div.portal div.body ul li a:hover {
 		text-decoration: none;
 	}
-	
+
 	#expander {
 		z-index: 2;
 		display: none;
@@ -517,7 +517,7 @@ div#mw-panel {
 		border-bottom-right-radius: 1em;
 		padding: 1px 3px 1px 3px;
 	}
-	
+
 .ad {
 	background-color: #CCCCCC;
 }

@@ -64,7 +64,7 @@ div#footer {
 }
 
 div.vectorMenu h5 a {
-    height: 2em !important;
+	height: 2em !important;
 }
 
 #p-logo {
@@ -183,28 +183,28 @@ div#simpleSearch {
 	}
 
 
-/*Fixes glitch. Remove it if it causes other problems. */
-#content{
+/* Fixes glitch. Remove it if it causes other problems. */
+#content {
 	width: 100% !important;
 }
-#expander{
+#expander {
 	width: 18px;
 }
-#footer-info, #p-logo{
-	display:none;
+#footer-info, #p-logo {
+	display: none;
 }
-#footer ul{
-	z-index:-1 !important;
+#footer ul {
+	z-index: -1 !important;
 }
-div #footer{
+div #footer {
 	position: static;
 }
-.portal{
+.portal {
 	position: relative;
 	top: 10px !important;
 	opacity: 0.9;
 }
-#p-search-mobile{
+#p-search-mobile {
 	position: fixed;
 	top: -10px !important;
 	right: -20px !important;
@@ -216,13 +216,13 @@ div #footer{
 	left: 30px !important;
 	z-index: 100;
 }
-#p-personal li:last-child{
+#p-personal li:last-child {
 	-webkit-border-bottom-right-radius: 20px;
 	-moz-border-radius-bottomright: 20px;
 	border-bottom-right-radius: 20px;
 }
-#p-personal a{
-	color:white !important;
+#p-personal a {
+	color: #FFF !important;
 }
 #p-views, #p-cactions{
 	margin-right: -20px !important;
