@@ -29,18 +29,11 @@ class SkinDeepSea extends SkinTemplate {
 		$out->addMeta('viewport', 'width=device-width');
 
 		$out->addModuleScripts( 'skins.deepsea' );
-		
+
 		$path = $wgLocalStylePath;
-		$screen = array(
-			'href' => "$path/deepsea/screen.css",
-			'rel' => 'stylesheet',
-			'type' => 'text/css',
-			'media' => 'only screen'
-		);
-		//$out->addLink($screen);
 		//$out->addLink($big);
-		
-		addTopElements($out);
+
+//		addTopElements($out);
 	}
 
 	/**
@@ -73,7 +66,7 @@ class DeepSeaTemplate extends BaseTemplate {
 	 
 	public function execute() {
 		
-		addBottomElements($this);
+//		addBottomElements($this);
 		
 		global $wgVectorUseIconWatch;
 
@@ -131,15 +124,15 @@ class DeepSeaTemplate extends BaseTemplate {
 		
 		//Get rid of studs if not wanted
 		$studs = true;
-		
+/*		
 		// AD CODES ==============================================
 		//$ad: 0 = none; 1 = side; 2 = bottom;
 		$haveAds = true;
 		if($_SERVER['SERVER_NAME'] == "adams-site.x10.mx"){
 			$haveAds = false;
 		}
-		global $IP;
-		require_once( $IP . '/extensions/MobileDetect/MobileDetect.php' );
+//		global $IP;
+//		require_once( $IP . '/extensions/MobileDetect/MobileDetect.php' );
 		
 		if(mobiledetect()){
 			$haveAds = false;
@@ -156,7 +149,7 @@ class DeepSeaTemplate extends BaseTemplate {
 		} else {
 			$ad = 0;
 		}
-		
+*/		
 		// Output HTML Page
 		$this->html( 'headelement' );
 ?>

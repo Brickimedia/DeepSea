@@ -12,8 +12,6 @@ if( !defined( 'MEDIAWIKI' ) ) {
 	die( -1 );
 }
 
-require_once(dirname(__FILE__) . '/../common/headers.php');
-
 $wgExtensionCredits['skin'][] = array (
 	'path' => __FILE__,
 	'name' => 'Deep Sea',
@@ -36,10 +34,11 @@ $wgValidSkinNames[strtolower( $skinID )] = 'DeepSea';
 
 $wgAutoloadClasses['SkinDeepSea'] = $dir . 'DeepSea.skin.php';
 $wgAutoloadClasses['DeepSeaTemplate'] = $dir . 'DeepSea.skin.php';
-$wgExtensionMessagesFiles['SkinDeepSea'] = $dir . 'DeepSea.i18n.php';
+//$wgExtensionMessagesFiles['SkinDeepSea'] = $dir . 'DeepSea.i18n.php';
 
-$wgHooks['OutputPageBodyAttributes'][] = 'DeepSeaTemplate::addToBody';
+//$wgHooks['OutputPageBodyAttributes'][] = 'DeepSeaTemplate::addToBody';
 
+$bmProject = "en";
 $wgResourceModules['skins.deepsea'] = array(
     'styles' => array(
         "skins/common/commonElements.css" => array( 'media' => 'screen' ),
@@ -49,11 +48,9 @@ $wgResourceModules['skins.deepsea'] = array(
         "skins/DeepSea/deepsea/big.css" => array( 'media' => 'only screen and (min-width: 800px), only screen and (min-device-width: 800px)' ),
         "skins/DeepSea/deepsea/small.css" => array( 'media' => 'only screen and (max-width: 800px), only screen and (max-device-width: 800px)' ),
         "skins/DeepSea/deepsea/interactive.css" => array( 'media' => 'screen' ),
-    	"skins/common/forums.css" => array( 'media' => 'screen' ),
     	"skins/DeepSea/deepsea/projects/$bmProject.css" => array( 'media' => 'screen' )
     ),
     'scripts' => array(
     	"skins/DeepSea/deepsea/deepsea.js",
-    	"skins/common/foes.js"
     )
 );
