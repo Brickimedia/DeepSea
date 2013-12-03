@@ -119,33 +119,6 @@ class DeepSeaTemplate extends BaseTemplate {
 		// Get rid of studs if not wanted
 		$studs = true;
 
-		$haveAds = false;
-		// AD CODES ==============================================
-		//$ad: 0 = none; 1 = side; 2 = bottom;
-/*
-		$haveAds = true;
-		if ( $_SERVER['SERVER_NAME'] == 'adams-site.x10.mx' ) {
-			$haveAds = false;
-		}
-		global $IP;
-		require_once( $IP . '/extensions/MobileDetect/MobileDetect.php' );
-
-		if ( mobiledetect() ) {
-			$haveAds = false;
-		}
-
-		if ( $haveAds ) {
-			$body = $this->data['bodycontent'];
-
-			if ( strlen( $body ) > 4000 ) {
-				$ad = 1;
-			} else {
-				$ad = 2;
-			}
-		} else {
-			$ad = 0;
-		}
-*/
 		// Output HTML Page
 		$this->html( 'headelement' );
 ?>
@@ -241,41 +214,12 @@ class DeepSeaTemplate extends BaseTemplate {
 				<div id="p-logo"><a style="background-image: url(<?php $this->text( 'logopath' ) ?>);" href="<?php echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] ) ?>" <?php echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ) ?>></a></div>
 			<?php $this->renderPortals( $this->data['sidebar'] ); ?>
 			<div id="p-ad" class="portal">
-				<?php if ( $ad == 1 ): ?>
-				<h5><?php echo wfMessage( 'deepsea-advertisement' )->plain() ?></h5>
-				<div id="p-ad-container">
-					<div id="p-ad-ad">
-						<script type="text/javascript"><!--
-							google_ad_client = "ca-pub-9543775174763951";
-							/* Wiki side */
-							google_ad_slot = "7599998335";
-							google_ad_width = 120;
-							google_ad_height = 240;
-							//-->
-						</script>
-						<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-						</script>
-					</div>
-				</div>
-				<?php endif; ?>
 			</div>
 		</div>
 		<!-- footer -->
 		<div id="footer"<?php $this->html( 'userlangattributes' ) ?>>
 			<?php $this->renderNavigation( 'SEARCH-MOBILE' ); ?>
 
-			<?php if ( $ad == 2 ): ?>
-				<script type="text/javascript"><!--
-					google_ad_client = "ca-pub-9543775174763951";
-					/* Wiki bottom */
-					google_ad_slot = "9076731533";
-					google_ad_width = 468;
-					google_ad_height = 60;
-					//-->
-				</script>
-				<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-				</script>
-			<?php endif; ?>
 			<?php foreach( $this->getFooterLinks() as $category => $links ): ?>
 				<ul id="footer-<?php echo $category ?>">
 					<?php foreach( $links as $link ): ?>
