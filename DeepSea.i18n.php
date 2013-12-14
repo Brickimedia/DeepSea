@@ -30,3 +30,12 @@ $messages['fr'] = array(
 	'deepsea-my-talk' => 'Ma page discussion',
 	'deepsea-this-page' => 'Cette page',
 );
+
+/** Vietnamese (Việt) **/
+$messages['vi'] = array(
+        'deepsea-advertisement' => 'Quảng cáo',
+        'deepsea-chat' => 'Trò chuyện',
+        'deepsea-forums' => 'Diễn đàn',
+        'deepsea-my-talk' => 'của tôi nói chuyện trang',
+        'deepsea-this-page' = 'Này trang',
+);
