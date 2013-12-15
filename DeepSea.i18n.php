@@ -37,5 +37,5 @@ $messages['vi'] = array(
         'deepsea-chat' => 'Trò chuyện',
         'deepsea-forums' => 'Diễn đàn',
         'deepsea-my-talk' => 'của tôi nói chuyện trang',
-        'deepsea-this-page' = 'Này trang',
+        'deepsea-this-page' => 'Này trang',
 );
