@@ -20,7 +20,7 @@ $wgExtensionCredits['skin'][] = array(
 	'path' => __FILE__,
 	'name' => 'Deep Sea',
 	'author' => 'UltrasonicNXT',
-	'descriptionmsg' => 'A smooth skin made for use on Brickimedia.',
+	'descriptionmsg' => 'deepsea-desc',
 	'url' => 'https://github.com/Brickimedia/DeepSea',
 );
 

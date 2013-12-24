@@ -11,6 +11,7 @@ $messages = array();
 $messages['en'] = array(
 	'deepsea-advertisement' => 'Advertisement',
 	'deepsea-chat' => 'Chat',
+	'deepsea-desc' => 'A smooth skin made for use on Brickimedia.',
 	'deepsea-forums' => 'Forums',
 	'deepsea-my-talk' => 'My Talk',
 	'deepsea-this-page' => 'This Page',
