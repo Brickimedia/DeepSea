@@ -428,11 +428,11 @@ class DeepSeaTemplate extends BaseTemplate {
 		<div id="simpleSearch">
 			<?php
 				if ( $this->data['rtl'] ) {
-					echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-rtl.png' ) );
+					echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-rtl.png', 'height' => '12', 'width' => '13' ) );
 				}
 				echo $this->makeSearchInput( array( 'id' => 'searchInput', 'type' => 'text' ) );
 				if ( !$this->data['rtl'] ) {
-					echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-ltr.png' ) );
+					echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-ltr.png', 'height' => '12', 'width' => '13' ) );
 				}
 			?>
 		<?php else: ?>
