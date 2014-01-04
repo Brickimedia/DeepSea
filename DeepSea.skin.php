@@ -508,8 +508,8 @@ class DeepSeaTemplate extends BaseTemplate {
 					}
 					if ( in_array('sysadmin', $groups ) ) {
 						$bmProject['dev'] = array(
-							'name' = 'Dev',
-							'hover' = 'The Brickimedia development wiki'
+							'name' => 'Dev',
+							'hover' => 'The Brickimedia development wiki'
 						);
 					}
 					global $bmProject;
