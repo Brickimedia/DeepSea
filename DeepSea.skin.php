@@ -500,8 +500,8 @@ class DeepSeaTemplate extends BaseTemplate {
 							'hover' => 'The LEGO CUUSOO Wiki'
 						),
 					);
-					global $wgUser;
-					$groups = $wgUser->getGroups();
+					$user = $this->getSkin()->getUser();
+					$groups = $user->getGroups();
 					if ( in_array('sysop', $groups ) ) {
 						$bmProject['admin'] = array(
 							'name' => 'Admin',
