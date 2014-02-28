@@ -540,11 +540,8 @@ class DeepSeaTemplate extends BaseTemplate {
 			<a href="http://<?php echo $code; ?>.brickimedia.org/wiki/Special:RecentChanges"><?php echo wfMessage( 'recentchanges' )->plain() ?></a>
 			<a style="display:none;" href="http://<?php echo $code; ?>.brickimedia.org/wiki/Special:Mytalk"><?php echo wfMessage( 'deepsea-my-talk' )->plain() ?></a>
 			<a href="http://<?php echo $code; ?>.brickimedia.org/wiki/Forum:Index"><?php echo wfMessage( 'deepsea-forums' )->plain() ?></a>
+			<a href='http://<?php echo $code; ?>.brickimedia.org/wiki/Special:Chat'><?php echo wfMessage( 'deepsea-chat' )->plain() ?></a>
 			<?php
-				if ( $code != 'meta' ) {
-					$chatMsg = wfMessage( 'deepsea-chat' )->plain();
-					echo "<a href='http://$code.brickimedia.org/wiki/Special:Chat'>{$chatMsg}</a>";
-				}
 				if ( $code != $bmProject ) {
 					$thisTitle = $this->getSkin()->getTitle()->getPrefixedURL();
 					$thisPageMsg = wfMessage( 'deepsea-this-page' )->plain();
