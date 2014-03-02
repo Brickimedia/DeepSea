@@ -1,22 +1,25 @@
+body, div#mw-panel {
+	background: #955100 url(http://images.brickimedia.org/c/c2/Refreshed-new-background.png) no-repeat fixed !important;
+	background-size: cover !important;
+}
+ 
+#p-personal li, #p-media li, div.vectorTabs li, div.vectorMenu, #p-search,
+div#mw-panel div.portal div.body ul li, .vectorMenu li, #p-search-mobile,
+#expander, .submenu a {
+	background-color: #A06219;
+}
+ 
 div.vectorMenu ul {
-        border: solid 1px #884900;
+	border: solid 1px #774D19;
 }
-
-#p-media li:not(.not-link):hover, #p-personal li:hover {
-        background-color: #993300;
-}
-
-div.vectorTabs li.selected {
-        background-color: #9B3000;
-}
-
+ 
 /* no longer :visited */
 div#mw-panel div.portal div.body ul li a, #p-media a, #p-personal a,
 div.vectorTabs li a, div.vectorMenu li a,
 div#mw-panel div.portal div.body ul li a {
-        color: #A3955B;
+	color: #543919;
 }
-
-body, div#mw-panel {
-        background-color: #D5C78D;
+ 
+#p-media li:not(.not-link):hover, #p-personal li:hover {
+        background-color: #593100;
 }
