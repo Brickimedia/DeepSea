@@ -125,7 +125,7 @@ class DeepSeaTemplate extends BaseTemplate {
 		<div id="mw-page-base" class="noprint"></div>
 		<div id="mw-head-base" class="noprint"></div>
 		<!-- expander -->
-		<div id="expander">
+		<div id="expander" class="noprint">
 			<span>&gt;</span>
 		</div>
 		<!-- content -->
