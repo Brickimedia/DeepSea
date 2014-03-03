@@ -23,3 +23,7 @@ div#mw-panel div.portal div.body ul li a {
 #p-media li:not(.not-link):hover, #p-personal li:hover {
         background-color: #593100;
 }
+
+.vectorTabs .selected {
+	background-color: #ffffff;
+}
