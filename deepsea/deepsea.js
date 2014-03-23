@@ -58,10 +58,10 @@ jQuery( function( $ ) {
 		$( this ).children().last().fadeOut( 150 );
 	} );
 
-	$( 'div#simpleSearch input' ).focusin( function() {
-		$( 'div#simpleSearch' ).toggleClass( 'expand' );
+	$( '#p-search input#SearchInput' ).focusin( function() {
+		$( '#p-search #searchForm' ).toggleClass( 'expand' );
 	} );
-	$( 'div#simpleSearch input' ).focusout( function() {
-		$( 'div#simpleSearch' ).toggleClass( 'expand' );
+	$( '#p-search input#searchInput' ).focusout( function() {
+		$( '#p-search #searchForm' ).toggleClass( 'expand' );
 	} );
 });
