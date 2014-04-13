@@ -481,7 +481,7 @@ class DeepSeaTemplate extends BaseTemplate {
 					$bmProjectsData = array(
 						'meta' => array(
 							'name' => 'Meta',
-							'hover' => 'Brickimedia\'s administrations site'
+							'hover' => 'Brickimedia\'s coordination site'
 						),
 						'en' => array(
 							'name' => 'Brickipedia',
@@ -498,6 +498,10 @@ class DeepSeaTemplate extends BaseTemplate {
 						'cuusoo' => array(
 							'name' => 'CUUSOO',
 							'hover' => 'The LEGO CUUSOO Wiki'
+						),
+						'books' => array(
+							'name' => 'Books',
+							'hover' => 'LEGO-related guidebooks and tutorials'
 						),
 					);
 					$user = $this->getSkin()->getUser();
