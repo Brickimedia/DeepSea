@@ -495,7 +495,7 @@ class DeepSeaTemplate extends BaseTemplate {
 							'name' => 'Stories',
 							'hover' => 'For all your own LEGO Stories'
 						),
-						'cuusoo' => array(
+						'ideas' => array(
 							'name' => 'Ideas',
 							'hover' => 'The LEGO Ideas Wiki'
 						),
