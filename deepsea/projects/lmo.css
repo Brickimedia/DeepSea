@@ -14,3 +14,10 @@ div.vectorTabs li.selected {
 div.vectorMenu ul {
 	border: solid 1px #EB1214;
 }
+
+/* no longer :visited */
+div#mw-panel div.portal div.body ul li a, #p-media a, #p-personal a,
+div.vectorTabs li a, div.vectorMenu li a,
+div#mw-panel div.portal div.body ul li a {
+color: #0645ad;
+}
