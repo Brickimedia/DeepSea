@@ -503,6 +503,10 @@ class DeepSeaTemplate extends BaseTemplate {
 							'name' => 'Books',
 							'hover' => 'LEGO-related guidebooks and tutorials'
 						),
+						'minifigures' => array(
+							'name' => 'LMO',
+							'hover' => 'For the LEGO Minifigures Online MMO'
+						),
 					);
 					$user = $this->getSkin()->getUser();
 					$groups = $user->getGroups();
