@@ -15,6 +15,7 @@ $messages['en'] = array(
 	'deepsea-forums' => 'Forums',
 	'deepsea-my-talk' => 'My Talk',
 	'deepsea-this-page' => 'This Page',
+	'skinname-deepsea' => 'DeepSea',
 );
 
 /** Finnish (suomi) */
