@@ -499,10 +499,6 @@ class DeepSeaTemplate extends BaseTemplate {
 							'name' => 'Ideas',
 							'hover' => 'The LEGO Ideas Wiki'
 						),
-						'books' => array(
-							'name' => 'Books',
-							'hover' => 'LEGO-related guidebooks and tutorials'
-						),
 						'minifigures' => array(
 							'name' => 'LMO',
 							'hover' => 'For the LEGO Minifigures Online MMO'
