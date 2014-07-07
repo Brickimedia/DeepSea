@@ -504,20 +504,6 @@ class DeepSeaTemplate extends BaseTemplate {
 							'hover' => 'For the LEGO Minifigures Online MMO'
 						),
 					);
-					$user = $this->getSkin()->getUser();
-					$groups = $user->getGroups();
-					if ( in_array('sysop', $groups ) ) {
-						$bmProject['admin'] = array(
-							'name' => 'Admin',
-							'hover' => 'The admin organisation wiki'
-						);
-					}
-					if ( in_array('sysadmin', $groups ) ) {
-						$bmProject['dev'] = array(
-							'name' => 'Dev',
-							'hover' => 'The Brickimedia development wiki'
-						);
-					}
 					global $bmProject;
 
 ?>
