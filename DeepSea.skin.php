@@ -6,7 +6,7 @@
  * @ingroup Skins
  */
 class SkinDeepSea extends SkinTemplate {
-	var $skinname = 'deepsea', $stylename = 'deepsea',
+	public $skinname = 'deepsea', $stylename = 'deepsea',
 		$template = 'DeepSeaTemplate', $useHeadElement = true;
 
 	/**
@@ -41,7 +41,10 @@ class SkinDeepSea extends SkinTemplate {
 	 */
 	function setupSkinUserCss( OutputPage $out ) {
 		parent::setupSkinUserCss( $out );
-		$out->addModuleStyles( 'skins.deepsea' );
+		$out->addModuleStyles( array(
+			'mediawiki.skinning.interface',
+			'skins.deepsea'
+		) );
 
 		global $wgUser;
 		$user = $wgUser->getName();
