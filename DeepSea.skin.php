@@ -501,11 +501,7 @@ class DeepSeaTemplate extends BaseTemplate {
 						'ideas' => array(
 							'name' => 'Ideas',
 							'hover' => 'The LEGO Ideas Wiki'
-						),
-						'minifigures' => array(
-							'name' => 'LMO',
-							'hover' => 'For the LEGO Minifigures Online MMO'
-						),
+						)
 					);
 					global $bmProject;
 
