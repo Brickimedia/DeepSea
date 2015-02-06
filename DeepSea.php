@@ -38,26 +38,13 @@ $wgExtensionMessagesFiles['SkinDeepSea'] = __DIR__ . '/DeepSea.i18n.php';
 // Who would've thought of that, huh?
 $wgAutoloadClasses['SkinDeepSea'] = __DIR__ . '/DeepSea.skin.php';
 
-// $bmProject is a Brickimedia-specific global that doesn't exist on vanilla
-// MW installations, but if it's not defined, we'll get ResourceLoader errors
-// and without loading the proper project-specific CSS file, DeepSea looks like
-// Yet Another Vector Clone.
-//
-// Also, this is a register_globals vulnerability, but if you have register_globals
-// enabled...you have much bigger issues than this. Just sayin', you know.
-if ( !isset( $bmProject ) ) {
-	$bmProject = 'en';
-}
-
 // Set up CSS & JS (via ResourceLoader)
 $wgResourceModules['skins.deepsea'] = array(
 	'styles' => array(
 		'skins/DeepSea/deepsea/screen.css' => array( 'media' => 'screen' ),
 		'skins/DeepSea/deepsea/big.css' => array( 'media' => 'only screen and (min-width: 800px), only screen and (min-device-width: 800px)' ),
 		'skins/DeepSea/deepsea/small.css' => array( 'media' => 'only screen and (max-width: 800px), only screen and (max-device-width: 800px)' ),
-		'skins/DeepSea/deepsea/interactive.css' => array( 'media' => 'screen' ),
-		#'skins/common/forums.css' => array( 'media' => 'screen' ),
-		"skins/DeepSea/deepsea/projects/$bmProject.css" => array( 'media' => 'screen' )
+		'skins/DeepSea/deepsea/interactive.css' => array( 'media' => 'screen' )
 	),
 	'scripts' => array(
 		'skins/DeepSea/deepsea/deepsea.js'
