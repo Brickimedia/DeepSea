@@ -494,13 +494,13 @@ class DeepSeaTemplate extends BaseTemplate {
 							'name' => 'Customs',
 							'hover' => 'Upload your own creations'
 						),
-						'stories' => array(
-							'name' => 'Stories',
-							'hover' => 'For all your own LEGO Stories'
-						),
 						'ideas' => array(
 							'name' => 'Ideas',
 							'hover' => 'The LEGO Ideas Wiki'
+						),
+						'gbc' => array(
+							'name' => 'GBC',
+							'hover' => 'Great Ball Contraptions'
 						)
 					);
 					global $bmProject;
