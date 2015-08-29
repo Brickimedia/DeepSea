@@ -135,74 +135,61 @@ class DeepSeaTemplate extends BaseTemplate {
 		<div id="content" class="mw-body">
 			<a id="top"></a>
 			<div id="mw-js-message" style="display:none;"<?php $this->html( 'userlangattributes' ) ?>></div>
-			<?php if ( $this->data['sitenotice'] ): ?>
 			<!-- sitenotice -->
-			<div id="siteNotice"><?php $this->html( 'sitenotice' ) ?></div>
-			<!-- /sitenotice -->
-			<?php endif; ?>
+			<?php if ( $this->data['sitenotice'] ) { ?>
+				<div id="siteNotice"><?php $this->html( 'sitenotice' ) ?></div>
+			<?php } ?>
 			<!-- firstHeading -->
 			<h1 id="firstHeading" class="firstHeading">
 				<span dir="auto"><?php $this->html( 'title' ) ?></span>
 			</h1>
-			<!-- /firstHeading -->
 			<!-- bodyContent -->
 			<div id="bodyContent">
-				<?php if ( $this->data['isarticle'] ): ?>
 				<!-- tagline -->
-				<div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
-				<!-- /tagline -->
-				<?php endif; ?>
+				<?php if ( $this->data['isarticle'] ) { ?>
+					<div id="siteSub"><?php $this->msg( 'tagline' ) ?></div>
+				<?php } ?>
 				<!-- subtitle -->
 				<div id="contentSub"<?php $this->html( 'userlangattributes' ) ?>><?php $this->html( 'subtitle' ) ?></div>
-				<!-- /subtitle -->
-				<?php if ( $this->data['undelete'] ): ?>
 				<!-- undelete -->
-				<div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
-				<!-- /undelete -->
-				<?php endif; ?>
-				<?php if( $this->data['newtalk'] ): ?>
-				<!-- newtalk -->
-				<div class="usermessage"><?php $this->html( 'newtalk' )  ?></div>
-				<!-- /newtalk -->
-				<?php endif; ?>
-				<?php if ( $this->data['showjumplinks'] ): ?>
+				<?php if ( $this->data['undelete'] ) { ?>
+					<div id="contentSub2"><?php $this->html( 'undelete' ) ?></div>
+				<?php } ?>
+				<!-- new talk -->
+				<?php if( $this->data['newtalk'] ) { ?>
+					<div class="usermessage"><?php $this->html( 'newtalk' )  ?></div>
+				<?php } ?>
 				<!-- jumpto -->
-				<div id="jump-to-nav" class="mw-jump">
-					<?php $this->msg( 'jumpto' ) ?> <a href="#mw-head"><?php $this->msg( 'jumptonavigation' ) ?></a>,
-					<a href="#p-search"><?php $this->msg( 'jumptosearch' ) ?></a>
-				</div>
-				<!-- /jumpto -->
-				<?php endif; ?>
+				<?php if ( $this->data['showjumplinks'] ) { ?>
+					<div id="jump-to-nav" class="mw-jump">
+						<?php $this->msg( 'jumpto' ) ?> <a href="#mw-head"><?php $this->msg( 'jumptonavigation' ) ?></a>,
+						<a href="#p-search"><?php $this->msg( 'jumptosearch' ) ?></a>
+					</div>
+				<?php } ?>
 				<!-- bodycontent -->
 				<?php $this->html( 'bodycontent' ); ?>
-				<!-- /bodycontent -->
-				<?php if ( $this->data['printfooter'] ): ?>
 				<!-- printfooter -->
-				<div class="printfooter">
-				<?php $this->html( 'printfooter' ); ?>
-				</div>
-				<!-- /printfooter -->
-				<?php endif; ?>
-				<?php if ( $this->data['catlinks'] ): ?>
+				<?php if ( $this->data['printfooter'] ) { ?>
+					<div class="printfooter">
+					<?php $this->html( 'printfooter' ); ?>
+					</div>
+				<?php } ?>
+				<?php if ( $this->data['catlinks'] ) { ?>
 				<!-- catlinks -->
 				<?php $this->html( 'catlinks' ); ?>
-				<!-- /catlinks -->
-				<?php endif; ?>
+				<?php } ?>
 				<?php if ( $this->data['dataAfterContent'] ): ?>
 				<!-- dataAfterContent -->
 				<?php $this->html( 'dataAfterContent' ); ?>
-				<!-- /dataAfterContent -->
-				<?php endif; ?>
+				<?php } ?>
 				<div class="visualClear"></div>
 				<!-- debughtml -->
 				<?php $this->html( 'debughtml' ); ?>
-				<!-- /debughtml -->
 			</div>
-			<!-- /bodyContent -->
 		</div>
 		<!-- header -->
 		<div id="mw-head" class="noprint">
-		    <?php $this->renderNavigation( 'MEDIA' ); ?>
+			<?php $this->renderNavigation( 'MEDIA' ); ?>
 			<?php $this->renderNavigation( 'PERSONAL' ); ?>
 			<div id="left-navigation">
 				<?php $this->renderNavigation( array( 'NAMESPACES', 'VARIANTS' ) ); ?>
@@ -216,8 +203,7 @@ class DeepSeaTemplate extends BaseTemplate {
 			<!-- logo -->
 				<div id="p-logo"><a style="background-image: url(<?php $this->text( 'logopath' ) ?>);" href="<?php echo htmlspecialchars( $this->data['nav_urls']['mainpage']['href'] ) ?>" <?php echo Xml::expandAttributes( Linker::tooltipAndAccesskeyAttribs( 'p-logo' ) ) ?>></a></div>
 			<?php $this->renderPortals( $this->data['sidebar'] ); ?>
-			<div id="p-ad" class="portal">
-			</div>
+			<div id="p-ad" class="portal"></div>
 		</div>
 		<!-- footer -->
 		<div id="footer"<?php $this->html( 'userlangattributes' ) ?>>
@@ -225,23 +211,25 @@ class DeepSeaTemplate extends BaseTemplate {
 
 			<?php foreach( $this->getFooterLinks() as $category => $links ): ?>
 				<ul id="footer-<?php echo $category ?>">
-					<?php foreach( $links as $link ): ?>
+					<?php foreach( $links as $link ) { ?>
 						<li id="footer-<?php echo $category ?>-<?php echo $link ?>"><?php $this->html( $link ) ?></li>
-					<?php endforeach; ?>
+					<?php } ?>
 				</ul>
-			<?php endforeach; ?>
+			<?php } ?>
 			<?php $footericons = $this->getFooterIcons( 'icononly' );
-			if ( count( $footericons ) > 0 ): ?>
+			if ( count( $footericons ) > 0 ) { ?>
 				<ul id="footer-icons" class="noprint">
-<?php			foreach ( $footericons as $blockName => $footerIcons ): ?>
+					<?php foreach ( $footericons as $blockName => $footerIcons ) { ?>
 					<li id="footer-<?php echo htmlspecialchars( $blockName ); ?>ico">
-<?php				foreach ( $footerIcons as $icon ):
-						echo $this->getSkin()->makeFooterIcon( $icon );
-					endforeach; ?>
+					<?php
+						foreach ( $footerIcons as $icon ) {
+							echo $this->getSkin()->makeFooterIcon( $icon );
+						}
+					?>
 					</li>
-<?php			endforeach; ?>
+					<?php } ?>
 				</ul>
-			<?php endif; ?>
+			<?php } ?>
 			<div style="clear:both"></div>
 		</div>
 		<!-- printtrail -->
@@ -352,131 +340,133 @@ class DeepSeaTemplate extends BaseTemplate {
 				// breaks the layout of the tabs...
 				case 'NAMESPACES':
 ?>
-<div id="p-namespaces" class="vectorTabs<?php if ( count( $this->data['namespace_urls'] ) == 0 ) echo ' emptyPortlet'; ?>"<?php $this->html( 'userlangattributes' ) ?>>
-	<h5><?php $this->msg( 'namespaces' ) ?></h5>
-		<?php foreach ( $this->data['namespace_urls'] as $link ): ?>
-			<li <?php echo $link['attributes'] ?>><a href="<?php echo htmlspecialchars( $link['href'] ) ?>" <?php echo $link['key'] ?>><?php echo htmlspecialchars( $link['text'] ) ?></a></li>
-		<?php endforeach; ?>
-</div>
-<?php
+					<div id="p-namespaces" class="vectorTabs<?php if ( count( $this->data['namespace_urls'] ) == 0 ) echo ' emptyPortlet'; ?>"<?php $this->html( 'userlangattributes' ) ?>>
+						<h5><?php $this->msg( 'namespaces' ) ?></h5>
+							<?php foreach ( $this->data['namespace_urls'] as $link ) { ?>
+								<li <?php echo $link['attributes'] ?>><a href="<?php echo htmlspecialchars( $link['href'] ) ?>" <?php echo $link['key'] ?>><?php echo htmlspecialchars( $link['text'] ) ?></a></li>
+							<?php } ?>
+					</div>
+			<?php
 				break;
 				case 'VARIANTS':
-?>
-<div id="p-variants" class="vectorMenu<?php if ( count( $this->data['variant_urls'] ) == 0 ) echo ' emptyPortlet'; ?>">
-	<h4>
-	<?php foreach ( $this->data['variant_urls'] as $link ): ?>
-		<?php if ( stripos( $link['attributes'], 'selected' ) !== false ): ?>
-			<?php echo htmlspecialchars( $link['text'] ) ?>
-		<?php endif; ?>
-	<?php endforeach; ?>
-	</h4>
-	<h5><span><?php $this->msg( 'variants' ) ?></span><a href="#"></a></h5>
-	<div class="menu"<?php $this->html('userlangattributes') ?>>
-			<?php foreach ( $this->data['variant_urls'] as $link ): ?>
-				<li<?php echo $link['attributes'] ?>><a href="<?php echo htmlspecialchars( $link['href'] ) ?>" <?php echo $link['key'] ?>><?php echo htmlspecialchars( $link['text'] ) ?></a></li>
-			<?php endforeach; ?>
-	</div>
-</div>
-<?php
+			?>
+					<div id="p-variants" class="vectorMenu<?php if ( count( $this->data['variant_urls'] ) == 0 ) echo ' emptyPortlet'; ?>">
+						<h4>
+						<?php foreach ( $this->data['variant_urls'] as $link ) { ?>
+							<?php if ( stripos( $link['attributes'], 'selected' ) !== false ) { ?>
+								<?php echo htmlspecialchars( $link['text'] ) ?>
+							<?php } ?>
+						<?php } ?>
+						</h4>
+						<h5><span><?php $this->msg( 'variants' ) ?></span><a href="#"></a></h5>
+						<div class="menu"<?php $this->html('userlangattributes') ?>>
+								<?php foreach ( $this->data['variant_urls'] as $link ) { ?>
+									<li<?php echo $link['attributes'] ?>><a href="<?php echo htmlspecialchars( $link['href'] ) ?>" <?php echo $link['key'] ?>><?php echo htmlspecialchars( $link['text'] ) ?></a></li>
+								<?php } ?>
+						</div>
+					</div>
+			<?php
 				break;
 				case 'VIEWS':
-?>
-<div id="p-views" class="vectorTabs<?php if ( count( $this->data['view_urls'] ) == 0 ) { echo ' emptyPortlet'; } ?>"<?php $this->html('userlangattributes') ?>>
-	<h5><?php $this->msg('views') ?></h5>
-		<?php foreach ( $this->data['view_urls'] as $link ): ?>
-			<li<?php echo $link['attributes'] ?>><a href="<?php echo htmlspecialchars( $link['href'] ) ?>" <?php echo $link['key'] ?>><?php
-				// $link['text'] can be undefined - bug 27764
-				if ( array_key_exists( 'text', $link ) ) {
-					echo array_key_exists( 'img', $link ) ?  '<img src="' . $link['img'] . '" alt="' . $link['text'] . '" />' : htmlspecialchars( $link['text'] );
-				}
-				?></a></li>
-		<?php endforeach; ?>
-</div>
+			?>
+				<div id="p-views" class="vectorTabs<?php if ( count( $this->data['view_urls'] ) == 0 ) { echo ' emptyPortlet'; } ?>"<?php $this->html('userlangattributes') ?>>
+					<h5><?php $this->msg('views') ?></h5>
+						<?php foreach ( $this->data['view_urls'] as $link ): ?>
+							<li<?php echo $link['attributes'] ?>>
+								<a href="<?php echo htmlspecialchars( $link['href'] ) ?>" <?php echo $link['key'] ?>><?php
+								// $link['text'] can be undefined - bug 27764
+								if ( array_key_exists( 'text', $link ) ) {
+									echo array_key_exists( 'img', $link ) ?  '<img src="' . $link['img'] . '" alt="' . $link['text'] . '" />' : htmlspecialchars( $link['text'] );
+								}
+								?>
+								</a>
+							</li>
+						<?php } ?>
+				</div>
 <?php
 				break;
 				case 'ACTIONS':
 ?>
-<div id="p-cactions" class="vectorMenu<?php if ( count( $this->data['action_urls'] ) == 0 ) echo ' emptyPortlet'; ?>">
-	<h5><span><?php $this->msg( 'actions' ) ?></span><a href="#"></a></h5>
-	<div class="menu">
-		<ul<?php $this->html( 'userlangattributes' ) ?>>
-			<?php foreach ( $this->data['action_urls'] as $link ): ?>
-				<li<?php echo $link['attributes'] ?>><a href="<?php echo htmlspecialchars( $link['href'] ) ?>" <?php echo $link['key'] ?>><?php echo htmlspecialchars( $link['text'] ) ?></a></li>
-			<?php endforeach; ?>
-		</ul>
-	</div>
-</div>
-<?php
+					<div id="p-cactions" class="vectorMenu<?php if ( count( $this->data['action_urls'] ) == 0 ) echo ' emptyPortlet'; ?>">
+						<h5><span><?php $this->msg( 'actions' ) ?></span><a href="#"></a></h5>
+						<div class="menu">
+							<ul<?php $this->html( 'userlangattributes' ) ?>>
+								<?php foreach ( $this->data['action_urls'] as $link ) { ?>
+									<li<?php echo $link['attributes'] ?>><a href="<?php echo htmlspecialchars( $link['href'] ) ?>" <?php echo $link['key'] ?>><?php echo htmlspecialchars( $link['text'] ) ?></a></li>
+								<?php } ?>
+							</ul>
+						</div>
+					</div>
+			<?php
 				break;
 				case 'PERSONAL':
-?>
-<div id="p-personal" class="top-nav <?php if ( count( $this->data['personal_urls'] ) == 0 ) echo ' emptyPortlet'; ?>">
-	<h5><?php $this->msg( 'personaltools' ) ?></h5>
-	<ul<?php $this->html( 'userlangattributes' ) ?>>
-<?php
-		foreach ( $this->getPersonalTools() as $key => $item ) {
-			echo $this->makeListItem( $key, $item );
-		}
-?>
-	</ul>
-</div>
+			?>
+					<div id="p-personal" class="top-nav <?php if ( count( $this->data['personal_urls'] ) == 0 ) echo ' emptyPortlet'; ?>">
+						<h5><?php $this->msg( 'personaltools' ) ?></h5>
+						<ul<?php $this->html( 'userlangattributes' ) ?>>
+					<?php
+							foreach ( $this->getPersonalTools() as $key => $item ) {
+								echo $this->makeListItem( $key, $item );
+							}
+					?>
+						</ul>
+					</div>
 <?php
 				break;
 				case 'SEARCH':
 ?>
-<div id="p-search">
-	<h5<?php $this->html( 'userlangattributes' ) ?>><label for="searchInput"><?php $this->msg( 'search' ) ?></label></h5>
-	<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
-		<?php if ( $wgVectorUseSimpleSearch && $this->getSkin()->getUser()->getOption( 'vector-simplesearch' ) ): ?>
-		<div id="simpleSearch">
+					<div id="p-search">
+						<h5<?php $this->html( 'userlangattributes' ) ?>><label for="searchInput"><?php $this->msg( 'search' ) ?></label></h5>
+						<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
+							<?php if ( $wgVectorUseSimpleSearch && $this->getSkin()->getUser()->getOption( 'vector-simplesearch' ) ) { ?>
+							<div id="simpleSearch">
+								<?php
+									if ( $this->data['rtl'] ) {
+										echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-rtl.png', 'height' => '12', 'width' => '13' ) );
+									}
+									echo $this->makeSearchInput( array( 'id' => 'searchInput', 'type' => 'text' ) );
+									if ( !$this->data['rtl'] ) {
+										echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-ltr.png', 'height' => '12', 'width' => '13' ) );
+									}
+								?>
+							<?php } else { ?>
+							<div>
+								<?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
+								<?php echo $this->makeSearchButton( 'go', array( 'id' => 'searchGoButton', 'class' => 'searchButton' ) ); ?>
+								<?php echo $this->makeSearchButton( 'fulltext', array( 'id' => 'mw-searchButton', 'class' => 'searchButton' ) ); ?>
+							<?php } ?>
+								<input type='hidden' name="title" value="<?php $this->text( 'searchtitle' ) ?>"/>
+							</div>
+						</form>
+					</div>
 			<?php
-				if ( $this->data['rtl'] ) {
-					echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-rtl.png', 'height' => '12', 'width' => '13' ) );
-				}
-				echo $this->makeSearchInput( array( 'id' => 'searchInput', 'type' => 'text' ) );
-				if ( !$this->data['rtl'] ) {
-					echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-ltr.png', 'height' => '12', 'width' => '13' ) );
-				}
-			?>
-		<?php else: ?>
-		<div>
-			<?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
-			<?php echo $this->makeSearchButton( 'go', array( 'id' => 'searchGoButton', 'class' => 'searchButton' ) ); ?>
-			<?php echo $this->makeSearchButton( 'fulltext', array( 'id' => 'mw-searchButton', 'class' => 'searchButton' ) ); ?>
-		<?php endif; ?>
-			<input type='hidden' name="title" value="<?php $this->text( 'searchtitle' ) ?>"/>
-		</div>
-	</form>
-</div>
-<?php
-
 				break;
 				case 'SEARCH-MOBILE':
-?>
-<div id="p-search-mobile" class="mobile">
-	<h5<?php $this->html( 'userlangattributes' ) ?>><label for="searchInput"><?php $this->msg( 'search' ) ?></label></h5>
-	<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform-mobile">
-		<?php if ( $wgVectorUseSimpleSearch && $this->getSkin()->getUser()->getOption( 'vector-simplesearch' ) ): ?>
-		<div id="simpleSearch-mobile">
-			<?php
-				if ( $this->data['rtl'] ) {
-					echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-rtl.png' ) );
-				}
-				echo $this->makeSearchInput( array( 'id' => 'searchInput', 'type' => 'text' ) );
-				if ( !$this->data['rtl'] ) {
-					echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-ltr.png' ) );
-				}
 			?>
-		<?php else: ?>
-		<div>
-			<?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
-			<?php echo $this->makeSearchButton( 'go', array( 'id' => 'searchGoButton', 'class' => 'searchButton' ) ); ?>
-			<?php echo $this->makeSearchButton( 'fulltext', array( 'id' => 'mw-searchButton', 'class' => 'searchButton' ) ); ?>
-		<?php endif; ?>
-			<input type='hidden' name="title" value="<?php $this->text( 'searchtitle' ) ?>"/>
-		</div>
-	</form>
-</div>
+					<div id="p-search-mobile" class="mobile">
+						<h5<?php $this->html( 'userlangattributes' ) ?>><label for="searchInput"><?php $this->msg( 'search' ) ?></label></h5>
+						<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform-mobile">
+							<?php if ( $wgVectorUseSimpleSearch && $this->getSkin()->getUser()->getOption( 'vector-simplesearch' ) ) { ?>
+							<div id="simpleSearch-mobile">
+								<?php
+									if ( $this->data['rtl'] ) {
+										echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-rtl.png' ) );
+									}
+									echo $this->makeSearchInput( array( 'id' => 'searchInput', 'type' => 'text' ) );
+									if ( !$this->data['rtl'] ) {
+										echo $this->makeSearchButton( 'image', array( 'id' => 'searchButton', 'src' => $imgPath . 'images/search-ltr.png' ) );
+									}
+								?>
+							<?php } else { ?>
+							<div>
+								<?php echo $this->makeSearchInput( array( 'id' => 'searchInput' ) ); ?>
+								<?php echo $this->makeSearchButton( 'go', array( 'id' => 'searchGoButton', 'class' => 'searchButton' ) ); ?>
+								<?php echo $this->makeSearchButton( 'fulltext', array( 'id' => 'mw-searchButton', 'class' => 'searchButton' ) ); ?>
+							<?php } ?>
+								<input type='hidden' name="title" value="<?php $this->text( 'searchtitle' ) ?>"/>
+							</div>
+						</form>
+					</div>
 <?php
 
 				break;
@@ -540,7 +530,7 @@ class DeepSeaTemplate extends BaseTemplate {
 		</div>
 
 		</li>
-		<?php endforeach; ?>
+		<?php } ?>
 	</ul>
 </div>
 
