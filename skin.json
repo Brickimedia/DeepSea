@@ -1,0 +1,55 @@
+{
+	"name": "DeepSea",
+	"namemsg": "skinname-deepsea",
+	"version": "1.0.0",
+	"author": [
+		"[http://meta.brickimedia.org/wiki/User:UltrasonicNXT UltrasonicNXT]",
+		"[http://meta.brickimedia.org/wiki/User:Codyn329 Codyn329]"
+	],
+	"url": "https://www.mediawiki.org/wiki/Skin:DeepSea",
+	"descriptionmsg": "deeepsea-desc",
+	"license-name": "GPL-3.0+",
+	"type": "skin",
+	"ValidSkinNames": {
+		"deepsea": "DeepSea"
+	},
+	"MessagesDirs": {
+		"SkinDeepSea": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"SkinMaterial": "DeepSea.skin.php",
+		"MaterialTemplate": "DeepSea.skin.php"
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "DeepSea"
+	},
+	"ResourceModules": {
+		"skins.deepsea": {
+			"styles": {
+				"deepsea/screen.css": {
+					"media": "screen"
+				},
+				"deepsea/big.css": {
+					"media": "only screen and (min-width: 800px), only screen and (min-device-width: 800px)"
+				},
+				"deepsea/small.css": {
+					"media": "only screen and (max-width: 800px), only screen and (max-device-width: 800px)"
+				},
+				"deepsea/interactive.css": {
+					"media": "screen"
+				}
+			},
+			"position": "top"
+		},
+		"skins.deepsea.js": {
+			"scripts": [
+				"deepsea/deepsea.js"
+			],
+			"position": "bottom"
+		}
+	},
+	"manifest_version": 1
+}
