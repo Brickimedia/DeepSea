@@ -178,7 +178,7 @@ class DeepSeaTemplate extends BaseTemplate {
 				<!-- catlinks -->
 				<?php $this->html( 'catlinks' ); ?>
 				<?php } ?>
-				<?php if ( $this->data['dataAfterContent'] ): ?>
+				<?php if ( $this->data['dataAfterContent'] ) { ?>
 				<!-- dataAfterContent -->
 				<?php $this->html( 'dataAfterContent' ); ?>
 				<?php } ?>
@@ -209,7 +209,7 @@ class DeepSeaTemplate extends BaseTemplate {
 		<div id="footer"<?php $this->html( 'userlangattributes' ) ?>>
 			<?php $this->renderNavigation( 'SEARCH-MOBILE' ); ?>
 
-			<?php foreach( $this->getFooterLinks() as $category => $links ): ?>
+			<?php foreach( $this->getFooterLinks() as $category => $links ) { ?>
 				<ul id="footer-<?php echo $category ?>">
 					<?php foreach( $links as $link ) { ?>
 						<li id="footer-<?php echo $category ?>-<?php echo $link ?>"><?php $this->html( $link ) ?></li>
@@ -371,7 +371,7 @@ class DeepSeaTemplate extends BaseTemplate {
 			?>
 				<div id="p-views" class="vectorTabs<?php if ( count( $this->data['view_urls'] ) == 0 ) { echo ' emptyPortlet'; } ?>"<?php $this->html('userlangattributes') ?>>
 					<h5><?php $this->msg('views') ?></h5>
-						<?php foreach ( $this->data['view_urls'] as $link ): ?>
+						<?php foreach ( $this->data['view_urls'] as $link ) { ?>
 							<li<?php echo $link['attributes'] ?>>
 								<a href="<?php echo htmlspecialchars( $link['href'] ) ?>" <?php echo $link['key'] ?>><?php
 								// $link['text'] can be undefined - bug 27764
@@ -503,7 +503,7 @@ class DeepSeaTemplate extends BaseTemplate {
 			<a>Brickimedia:</a>
 		</li>
 		<?php
-			foreach ( $bmProjectsData as $code => $info ):
+			foreach ( $bmProjectsData as $code => $info ) {
 				$liAttributes = array( 'title' => $info['hover'] );
 				// Empty class attribute makes W3C Validator sad, so add it
 				// only if we have a reason to!
