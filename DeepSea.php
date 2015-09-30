@@ -31,7 +31,7 @@ $wgExtensionCredits['skin'][] = array(
 // *this* file.
 $wgValidSkinNames['deepsea'] = 'DeepSea';
 
-$wgExtensionMessagesFiles['SkinDeepSea'] = __DIR__ . '/DeepSea.i18n.php';
+$wgMessagesDirs['SkinDeepSea'] = __DIR__ . '/i18n';
 
 // Autoload the main skin class, but NOT the class extending BaseTemplate
 // Fun MediaWiki fact: autoloading the class that extends BaseTemplate causes
