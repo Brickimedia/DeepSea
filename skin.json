@@ -19,8 +19,8 @@
 		]
 	},
 	"AutoloadClasses": {
-		"SkinMaterial": "DeepSea.skin.php",
-		"MaterialTemplate": "DeepSea.skin.php"
+		"SkinDeepSea": "DeepSea.skin.php",
+		"DeepSeaTemplate": "DeepSea.skin.php"
 	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
