@@ -19,7 +19,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 $wgExtensionCredits['skin'][] = array(
 	'path' => __FILE__,
 	'name' => 'Deep Sea',
-	'version' => '1.1.1',
+	'version' => '1.1.2',
 	'author' => 'UltrasonicNXT',
 	'descriptionmsg' => 'deepsea-desc',
 	'url' => 'https://github.com/Brickimedia/DeepSea',
@@ -49,5 +49,6 @@ $wgResourceModules['skins.deepsea'] = array(
 	),
 	'scripts' => array(
 		'skins/DeepSea/deepsea/deepsea.js'
-	)
+	),
+	'position' => 'top'
 );
